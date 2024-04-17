@@ -1,0 +1,309 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Ensure body fills the viewport */
+    background-color: #faf0e6;
+  }
+  
+  header, footer {
+    color: white;
+    text-align: center;
+    padding: 2px; /* Add some padding for better appearance */
+    font-family: 'luminari', cursive;
+    font-size:x-large;
+  }
+  
+  main {
+    display: flex;
+    flex: 1;
+    overflow: hidden; /* Hide overflow from main */
+  }
+  
+  footer {
+    color: white;
+    text-align: center;
+    padding: 10px; /* Add some padding for better appearance */
+    width: 100%; /* Make the footer span the full width of the viewport */
+    bottom: 0; /* Position the footer at the bottom */
+    z-index: 999; /* Ensure the footer is above other elements */
+  }
+  
+  header {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    justify-content: space-between;
+    color: black;
+  }
+
+  #sidebar {
+    flex: 0 0 200px; /* Set a fixed width for the sidebar */
+    background-color: #1e847f;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto; /* Allow scrolling within sidebar if needed */
+    opacity: 0.99;
+    background-color: 		#4663ac;
+    border-radius: 10px;
+  }
+  
+  
+  .hoverButton {
+    padding: 10px;
+    margin-top: 15px;
+    list-style-type: none;
+  }
+  
+  /* Other styles remain unchanged */
+  
+/* CSS */
+ul {
+    list-style-type: none; /* Remove default bullet points */
+    padding: 0;
+}
+
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.hoverButton:hover {
+    background-color: lightslategrey;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#beverage_database {
+    flex: 2;
+    min-width: 200px;
+    padding: 20px;
+    box-sizing: border-box;
+
+    display:flex;
+    flex-flow:row wrap;
+    align-content: flex-start;
+    
+    width: 100%;
+    height:100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    
+    border-bottom-left-radius: 1%;
+}
+
+#nav li.selected {
+    background-color: #822020; 
+    font-weight: bold; 
+    color: #fff; 
+    border-radius: 20px;
+}
+
+.item{
+        
+        height: 170px;
+        width: 110px;
+        margin:2%;
+    
+        border-style: solid;
+        border-color: #010101;
+        border-width: medium;
+        border-radius: 3%;
+        font-size: 10px;
+        float: left;
+        text-align: center;
+
+        cursor: pointer;
+        overflow:hidden;    
+}
+.beer{
+    background-color: #7babdf53;
+}
+.wine{
+    background-color: #37cdc540;
+}
+.spirit{
+    background-color: beige;
+}
+.cocktail{
+    background-color: #74d9d6c6;
+}
+
+#nav li.selected {
+    background-color: #822020; 
+    font-weight: bold; 
+    color: #fff; 
+    border-radius: 10px;
+}
+
+#shoppingcart-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: #ddd;
+    padding: 10px;
+    box-sizing: border-box;  
+    opacity: 0.99;
+    background-color: 		#4663ac;
+    border-radius: 10px;  
+}
+
+#shoppingcart-items {
+    flex: 1;
+    
+    overflow-y:scroll;
+    height:100%; /* Add scrollbar when items overflow */
+    
+}
+
+.cartItem {
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 2px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+  }
+
+.itemName {
+    margin: 2px 0;
+    font-size:15px;
+    
+}
+.itemPrice{
+    text-align: right;
+    font-size:10px;
+}
+
+.itemQuantity{
+    text-align: right;
+    font-size:10px;
+}
+
+.removeItemBtn
+{
+    background-image: url(../images/icons/remove.png);
+    background-repeat: no-repeat; 
+    background-position: center; 
+    background-size: contain; 
+    border: none; 
+    cursor: pointer; 
+    width: 20px; 
+    height: 20px; 
+    text-indent: -9999px; 
+    display: inline-block; 
+}
+
+.right-buttons-container {
+    display: flex;
+    flex-direction: column; /* Align items in a column */
+    align-items: flex-end;
+    padding-top: 2px; /* Add some space between items and buttons */
+}
+
+.total-amount {
+    margin-bottom: 2px; /* Adjust margin as needed */
+}
+
+.action-buttons {
+    display: flex;
+}
+
+.right-buttons {
+    padding: 10px;
+    font-size: 13px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    margin-left: 10px; /* Adjust margin as needed */
+}
+
+#languageButton {
+    width: 5%;
+    float: right;
+    cursor: pointer;
+}
+
+.undoRedoButtons {
+    width: 7%;
+    float: left;
+    cursor: pointer;
+}
+
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+
+    #sidebar, #main-section, #checkout-section {
+        flex: 1;
+        min-width: 100%;
+    }
+}
+
+.header-right,
+  .header-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #backIcon {
+    margin-right: 10px;
+    height: 20px;
+  }
+
+  #languageDropdown {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin: 20px;
+  }
+
+  .undoRedoButtons {
+    margin: 5px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  #header-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  #header-left:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .header-right,
+  .header-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hoverButton {
+    padding: 10px;
+    margin-top: 15px;
+    list-style-type: none;
+  }

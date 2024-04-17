@@ -1,0 +1,129 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Ensure body fills the viewport */
+    overflow: hidden;
+  }
+  
+header, footer {
+    background-color: #563232;
+    color: white;
+    text-align: center;
+    
+}
+  
+main {
+    display: flex;
+    flex: 1;
+    overflow: hidden; /* Hide overflow from main */
+}
+  
+footer {
+    background-color: #563232;
+    color: white;
+    text-align: center;
+    padding: 10px; /* Add some padding for better appearance */
+    width: 100%; /* Make the footer span the full width of the viewport */
+    bottom: 0; /* Position the footer at the bottom */
+    z-index: 99; /* Ensure the footer is above other elements */
+}
+
+header {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    justify-content: space-between
+}
+  
+#header-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 100%;
+    cursor: pointer;
+}
+
+#header-left:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.header-right,
+.header-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.header-center {
+    flex-grow: 1; /* Allow it to grow and take up available space */
+    justify-content: center; /* Horizontally center items */
+}
+  
+#backIcon {
+    margin-right: 10px;
+    height: 20px;
+}
+
+.undoRedoButtons {
+    margin: 5px;
+    height: 20px;
+    cursor: pointer;
+    background-image: url('../images/Icons/undo-white.png');
+}
+
+.undoRedoButtons.disabled {
+    background-image: url('../images/Icons/undo-white.png');
+    cursor: unset;
+}
+  
+#languageDropdown {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin: 20px;
+}
+  
+#sidebar {
+    flex: 0 0 200px; /* Set a fixed width for the sidebar */
+    background-color: #1e847f;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto; /* Allow scrolling within sidebar if needed */
+}
+  
+.hoverButton {
+    padding: 10px;
+    margin-top: 15px;
+    list-style-type: none;
+}
+  
+/* Other styles remain unchanged */
+  
+/* CSS */
+ul {
+    list-style-type: none; /* Remove default bullet points */
+    padding: 0;
+}
+
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.hoverButton:hover {
+    background-color: lightslategrey;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#nav li.selected {
+    background-color: #822020; 
+    font-weight: bold; 
+    color: #fff; 
+    border-radius: 20px;
+}

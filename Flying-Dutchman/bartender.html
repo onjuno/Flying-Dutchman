@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bartender page</title>
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="./db/Beverages.js"></script>
+    <script type="text/javascript" src="./db/CustomerAccounts.js"></script>
+    <script type="text/javascript" src="./db/Orders.js"></script>
+    <script type="text/javascript" src="./db/RestockOrders.js"></script>
+    <script type="text/javascript" src="./db/Users.js"></script>
+    <script type="text/javascript" src="./db/Stock.js"></script>
+    <script type="text/javascript" src="./js/loader.js"></script>
+    <script type="text/javascript" src="./js/undo-redo.js"></script>
+    <script type="text/javascript" src="./js/bartender.js"></script>
+    <script type="text/javascript" src="./js/bartender-orders.js"></script>
+    <script type="text/javascript" src="./js/bartender-stock.js"></script>
+    <script type="text/javascript" src="./js/translation.js"></script>
+
+    <link rel="stylesheet" href="css/bartender.css" />
+  </head>
+  <body>
+    <header>
+      <div id="header-left">
+        <img src="images/icons/back-black.png" alt="Go Back" id="backIcon">
+      </div>
+      <div class="header-center">
+        <h1>The Flying Dutchman</h1>
+      </div>
+      <div class="header-right">
+        <img src="images/icons/undo-white.png" alt="Undo" id="undoButton" class="undoRedoButtons" disabled>
+        <img src="images/icons/redo-white.png" alt="Redo" id="redoButton" class="undoRedoButtons" disabled>    
+        <select id="languageDropdown">
+          <option value="English">ENG</option>
+          <option value="Swedish">SWE</option>
+          <!-- Add other language options here -->
+        </select>
+      </div>
+    </header>
+
+    <main>
+      <div id="sidebar">
+        <!-- Vertical Menu -->
+        <ul id="nav">
+          <img
+            src="images/Icons/logo.png"
+            alt="logo"
+            width="80px"
+            height="80px"
+          />
+          <li id="ordersTab" class="hoverButton"><a href="#">Orders</a></li>
+          <li id="unpaidOrdersTab" class="hoverButton">
+            <a href="#">Unpaid Orders</a>
+          </li>
+          <li id="stockTab" class="hoverButton">
+            <a href="#">Manage Stock</a>
+          </li>
+          <!-- Add more menu items as needed -->
+        </ul>
+      </div>
+
+      <!--This is the main element in the middle (where orders and stock is presented)-->
+      <div id="main-section">
+        <div id="main-section-filter">
+          <button id="addDrinkButton">+</button>
+          <input type="text" id="searchDrinkInput" placeholder="Search...">
+          <label><input type="checkbox" id="lowStockCheckbox"> Low in Stock</label>
+          <label><input type="checkbox" id="outOfStockCheckbox"> Out of Stock</label>
+      </div>
+        <div id="main-section-content"></div>
+      </div>
+
+      <div id="sideContainer">
+        <div class="right-buttons-container">
+          <!-- Total amount placed just above the buttons -->
+          <div class="total-amount">
+          </div>
+          <!-- Action buttons placed just above the total amount -->
+          <div class="action-buttons">
+            <button id="orderButton" class="right-buttons">Order</button>
+            <button id="payButton" class="right-buttons">Pay</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="drink-attributes-edit"></div>
+      </div>
+    </div>
+    <div id="popup" class="popup">
+
+  </div>
+    <footer>
+      <p></p>
+    </footer>
+  </body>
+</html>

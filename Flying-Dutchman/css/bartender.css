@@ -1,0 +1,711 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Ensure body fills the viewport */
+    overflow: hidden; 
+    /*background-image: url('../images/icons/blue-background.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.8;
+    */
+    background-color: #faf0e6;
+  }
+  
+  header, footer {
+    /*background-color: #563232;*/
+    color: white;
+    text-align: center;
+    padding: 2px;
+    font-family: 'luminari', cursive;
+    font-size:x-large;
+    
+  }
+  
+  main {
+    display: flex;
+    flex: 1;
+    overflow: hidden; /* Hide overflow from main */
+  }
+  
+  footer {
+    /*background-color: #563232;*/
+    color: white;
+    text-align: center;
+    padding: 10px; /* Add some padding for better appearance */
+    width: 100%; /* Make the footer span the full width of the viewport */
+    bottom: 0; /* Position the footer at the bottom */
+    z-index: 99; /* Ensure the footer is above other elements */
+  }
+
+  header {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    justify-content: space-between;
+    color: black;
+  }
+  
+  #header-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  #header-left:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .header-right,
+  .header-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .header-center {
+    flex-grow: 1; /* Allow it to grow and take up available space */
+    justify-content: center; /* Horizontally center items */
+  }
+  
+  #backIcon {
+    margin-right: 10px;
+    height: 20px;
+  }
+  
+  .undoRedoButtons {
+    margin: 5px;
+    height: 20px;
+    cursor: pointer;
+  }
+  
+  #languageDropdown {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin: 20px;
+  }
+  
+  
+  #sidebar {
+    flex: 0 0 200px; /* Set a fixed width for the sidebar */
+    background-color: transparent;
+    color: white;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    overflow-y: auto; /* Allow scrolling within sidebar if needed */
+    opacity: 0.99;
+    background-color: 		#4663ac;
+  }
+  
+  .hoverButton {
+    padding: 10px;
+    margin-top: 15px;
+    list-style-type: none;
+  }
+  
+  /* Other styles remain unchanged */
+  
+/* CSS */
+ul {
+    list-style-type: none; /* Remove default bullet points */
+    padding: 0;
+}
+
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.hoverButton:hover {
+    background-color: lightslategrey;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#main-section {
+    flex: 2;
+    min-width: 200px;
+    padding: 0px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+}
+
+#main-section-content {
+    flex: 2;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: scroll;
+}
+
+#nav li.selected {
+    background-color: #822020ee; 
+    font-weight: bold; 
+    color: #fff; 
+    border-radius: 10px;
+}
+
+#sideContainer {
+    display: none;
+    flex-direction: column;
+    flex: 1;
+    background-color: 	#4663ac;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    position: relative; /* Make it a positioned container */
+    border-left: 1px solid black;
+}
+
+#sideContainer.active {
+    display: flex;
+}
+
+.right-buttons-container {
+    display: flex;
+    flex-direction: column; /* Align items in a column */
+    align-items: flex-end;
+    padding-top: 10px; /* Add some space between items and buttons */
+}
+
+.total-amount {
+    margin-bottom: 10px; /* Adjust margin as needed */
+}
+
+.action-buttons {
+    display: flex;
+}
+
+.right-buttons {
+    padding: 10px;
+    font-size: 13px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    margin-left: 10px; /* Adjust margin as needed */
+}
+
+#languageButton {
+    width: 5%;
+    float: right;
+    cursor: pointer;
+}
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+
+    #sidebar, #main-section, #checkout-section {
+        flex: 1;
+        min-width: 100%;
+    }
+}
+
+/*---------------------------------------------*/
+/*---------------------------------------------*/
+/*---------------------------------------------*/
+/*---------------------------------------------*/
+/*---------------------------------------------*/
+
+#cancelOrderButton {
+  background-color: red;
+}
+
+#moneyTotal {
+  text-align: end;
+  padding-right: 10px;
+}
+
+.drinks-grid {
+    /*display: flex;*/
+    overflow: scroll;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex: 1;
+}
+
+.drink-container {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    width: 250px;
+    height: fit-content;
+}
+
+.btn-container {
+    margin-top: 10px;
+}
+
+.btn-minus,
+.btn-plus,
+.btn-change-price {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-right: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.btn-change-price {
+    background-color: #dc3545;
+}
+
+
+
+.orders-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.order-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.order-item:hover {
+    background-color: #eaeaea;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.order-item.active {
+    
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #989898;
+}
+
+.order-details {
+    display: none;
+    margin-top: 0px;
+    padding: 0px 10px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.order-buttons {
+    text-align: flex-start;
+    padding: 10px;
+}
+
+.order-buttons button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-top: 5px;
+    width: 50%;
+    text-align: center;
+}
+
+.order-buttons button:last-child {
+    margin-right: 0;
+}
+
+
+/* Ordered items */
+
+.cartItem {
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 2px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%;
+    flex-flow: row;
+  }
+
+.itemName {
+    margin: 2px 0;
+    font-size:15px;
+    
+}
+.itemPrice{
+    text-align: right;
+    font-size:10px;
+    flex: 1;
+}
+
+.itemQuantity{
+    text-align: right;
+    font-size:10px;
+}
+
+.editPriceOfOrderedItemBtn
+{
+    background-image: url(../images/icons/edit-button-brown.png);
+    background-repeat: no-repeat; 
+    background-position: center; 
+    background-size: contain; 
+    border: none; 
+    cursor: pointer; 
+    width: 20px; 
+    height: 20px; 
+    text-indent: -9999px; 
+    display: inline-block; 
+}
+
+/* Filter bar for inventory/stock view */
+
+#main-section-filter {
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: transparent;
+}
+
+#main-section-filter.active {
+    display: flex;
+}
+
+#addDrinkButton {
+    height: 100%;
+    cursor: pointer;
+}
+
+#addDrinkButton:hover {
+    background-color: #45a049;
+}
+
+#searchDrinkInput {
+    flex: 1;
+    margin-left: 10px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Pop up to add items to stock */
+
+.popup {
+    display: none;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.popup-content {
+    background-color: white;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.popup-content input[type="text"] {
+    width: 250px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.popup-content select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.popup-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    padding-bottom: 15px;
+}
+
+.popup-header-text {
+    flex: 1;
+    text-align: left;
+    font-size: 18px;
+}
+
+.popup-body div {
+    padding: 10px 0px;
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+#popup-content-add-to-stock {
+    width: 80%; /* Adjust the width as needed */
+    max-width: 800px;
+}
+
+.table-container {
+    height: 50vh;
+    overflow: scroll;
+}
+
+#beverageTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#beverageTable th,
+#beverageTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#beverageTable th {
+    background-color: #f2f2f2;
+}
+
+#beverageTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#beverageTable tr:hover {
+    background-color: #ddd;
+}
+
+/* Pop up to submit/cancel action */
+
+#popup-content-cancel-order {
+    width: 350px;
+    text-align: center;
+}
+
+.submit-action-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    border: 4px solid #4CAF50;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 22px;
+    cursor: pointer;
+}
+
+.cancel-action-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    color: red;
+    border: 4px solid red;
+    font-weight: bold;
+    border-radius: 22px;
+    cursor: pointer;
+}
+
+/*-----------------------------display drinks-------------------------------*/
+
+.item {
+    height: 250px;
+    width: 160px;
+    margin: 2%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 12px;
+    float: left;
+    text-align: left;
+    overflow: hidden;
+    display: flex;
+    flex-flow: column;
+    background-color: #e1f1fd;
+  }
+  
+  .stock-card-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid black;
+  }
+  
+  .stock-card-header-text {
+    flex: 1;
+    text-align: left;
+    font-size: 15px;
+  }
+  
+  .stock-edit-dropdown {
+    position: relative;
+    align-self: start;
+  }
+  
+  .stock-edit-btn {
+    background-image: url(../images/icons/three-dots.png);
+    background-color: transparent;
+    background-repeat: no-repeat; 
+    background-position: center; 
+    background-size: contain; 
+    border: none; 
+    cursor: pointer; 
+    text-indent: -9999px; 
+    display: inline-block; 
+    width: 17px;
+    height: 17px;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: fixed;
+    background-color: #f9f9f9;
+    min-width: 80px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .stock-card-footer {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+  }
+  
+  .stock-card-footer button {
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent; /* Make background transparent */
+    transition: background-color 0.3s ease;
+  }
+  
+  .stock-card-footer button.onMenuBtn {
+    background-color: #7dc880; /* Green */
+  }
+  
+  .stock-card-footer button.notOnMenuBtn {
+    background-color: #e57272; /* Red */
+  }
+  
+  .stock-card-footer button:hover {
+    background-color: rgba(0, 0, 0, 0.2); /* Lighter shade of red */
+  }
+  
+  
+  
+  .menu-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+  }
+  
+  
+  .beer {
+    background-color: #e1f1fd;
+  }
+  
+  .wine {
+    background-color: #e1f1fdbc;
+  }
+  
+  .cocktail {
+    background-color: #e1f1fd;
+  }
+  /* Modal styles */
+  .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+    
+    .modal-content {
+      background-color: #fefefe;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      border: 1px solid #888;
+      max-width: 80%; /* Adjust as needed */
+      box-sizing: border-box; /* Ensure padding is included in width */
+    }
+    
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
